@@ -1,0 +1,22 @@
+table, tr{
+    border:1px solid black;
+}
+
+table{
+    width:500px;
+    border-collapse: collapse;
+}
+
+th{
+    color:white;
+    background-color: black;
+    padding:5px;
+}
+
+td{
+    padding-left:10px;
+}
+
+tr{
+    font-size: 20px;
+}

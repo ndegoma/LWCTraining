@@ -1,0 +1,19 @@
+<template>
+    <c-header>{title} - {currentDate}</c-header>
+    <div class="container">
+        <!-- <span>@api sample/global helper</span> -->
+        <c-name-input instruction="Input Your Name:"></c-name-input>
+        <br/>
+        <!-- <span>helper class for specific component</span> -->
+        <c-my-data-table></c-my-data-table>
+        <br/>
+        <!-- <span>track example</span> -->
+        <c-track-example></c-track-example>
+        <br>
+        <!-- <span>Wire and Imnperative/ connectedCallback and disconnectedCallback</span> -->
+        <lightning-input type="checkbox" onchange={showHide} label = "Show Table"></lightning-input>
+        <template if:true={showTable}>
+            <c-contacts account-id="0015j00000cG14zAAC"></c-contacts>
+        </template>
+    </div>
+</template>

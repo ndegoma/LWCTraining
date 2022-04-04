@@ -1,0 +1,18 @@
+:host{
+    font-size: 40px;
+    text-align: center;
+    font-family: fantasy;
+    color:#FFF;
+}
+
+:host(.italic){
+    font-style: italic;
+}
+
+:host(.bold){
+    font-weight: bolder;
+}
+
+:host(.strike){
+    text-decoration: line-through;
+}

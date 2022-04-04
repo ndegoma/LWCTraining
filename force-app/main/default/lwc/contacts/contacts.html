@@ -1,0 +1,12 @@
+<template>
+    <lightning-input label="Search Contact" value={name} onchange={handleOnChange}></lightning-input>
+    <lightning-datatable
+        key-field="Id"
+        data={contacts}
+        columns={columns}
+        onsave={handleSave}
+        hide-checkbox-column="true"
+        draft-values={draftValues}
+    >
+    </lightning-datatable>
+</template>

@@ -1,0 +1,31 @@
+<template>
+
+    <lightning-input label="Name"></lightning-input>
+    <br/>
+    <table >
+        <tr>
+            <th>Contacts</th>
+        </tr>
+        <tbody>
+            <template for:each={contacts} for:item="con">
+                <tr key={con}>
+                    <td>
+                        {con}
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+    <br/>
+    
+   
+    <!--<template iterator:it={participants} for>
+        <div key={it.value}>
+            <div if:true={it.first} style="border-bottom: 1px solid black; width:1000px"></div>
+            <p>{it.value}</p>
+            <div if:true={it.last} style="border-top: 1px solid black;width: 1000px"></div>
+        </div>
+    </template>-->
+
+    <lightning-button onclick={handleClick} label="Add" variant="brand"></lightning-button>
+</template>

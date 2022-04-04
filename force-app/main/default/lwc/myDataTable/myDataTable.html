@@ -1,0 +1,15 @@
+<template>
+    <div class="container">
+        <lightning-datatable
+            key-field="Id"
+            data={data}
+            columns={columns}
+            onsort={onHandleSort}
+            sorted-by={sortedBy}
+            sorted-direction={sortDirection}
+            hide-checkbox-column="true"
+        >
+        </lightning-datatable>
+    </div>
+    
+</template>
