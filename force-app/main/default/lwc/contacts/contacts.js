@@ -15,7 +15,7 @@ export default class Contacts extends LightningElement {
                 {label:"Last Name", editable:true, fieldName:"LastName"},
                 {label:"Phone", editable:true,fieldName:"Phone"},
                 {label:"Alias", editable:true,fieldName:"Alias__c"},
-                {label:"Company",fieldName:"CompanyName"}
+                {label:"Company",fieldName:"Account.Name"}
             ];
 
     handleOnChange(event){
@@ -28,13 +28,22 @@ export default class Contacts extends LightningElement {
         if(result.data){
             this.wiredContactList = result;
             this.contacts = result.data.map(contact=>{
+                //assign the iterated value as a new intance of the con variable
                 let con = Object.assign({}, contact);
-                con["CompanyName"] = contact.Account.Name;
+                //remap the value of the object Account.Name to a key call Account.Name
+                con["Account.Name"] = contact.Account.Name;
+                //other way to do this is
+                //let con = {...contact, "Account.Name" : contact.Account.Name};
                 return con;
             });
         }else if(result.error){
             console.error(result.error);
         }
+    }
+
+    constructor(){
+        super();
+        console.log("Dragon Ball");
     }
 
     renderedCallback(){
@@ -53,14 +62,15 @@ export default class Contacts extends LightningElement {
     handleSave(event){
         console.table(event.detail.draftValues);
         updateContacts({contactList:event.detail.draftValues}).then(()=>{
-
+            //dispatch a toast message
             this.dispatchEvent(new ShowToastEvent({message:"Successfully updated contact",variant:"success"}));
-            
+            //clear the draft values of the data table
             this.draftValues = [];
+            //refresh wire method if a change in the database is detected
             return refreshApex(this.wiredContactList);
         }).catch(err=>{
             console.error(err);
-        }).finally(final=>{
+        }).finally(()=>{
             console.log('finally');
         });
     }

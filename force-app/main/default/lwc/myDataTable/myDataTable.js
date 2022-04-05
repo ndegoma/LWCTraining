@@ -10,6 +10,7 @@ export default class MyDataTable extends LightningElement {
 
     onHandleSort(event){
         try{
+            //call the helper function to sort records
             this.data = sortRecords(event, this.data);
             this.sortedBy = event.detail.fieldName;
             this.sortDirection = event.detail.sortDirection;

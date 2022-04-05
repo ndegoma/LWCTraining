@@ -3,9 +3,13 @@ import { fullDate as formattedDate } from 'c/globalHelper';
 export default  class ParentContainer extends LightningElement{
     @api title;
     currentDate;
-    showTable = false;
+    showTable;
     connectedCallback(){
        // console.log('connected');
+
+
+
+        // call the global helper function to format date
         this.currentDate = formattedDate(new Date());
     }
 
@@ -18,7 +22,6 @@ export default  class ParentContainer extends LightningElement{
     }
 
     showHide(event){
-        console.log(event);
         this.showTable = event.detail.checked;
     }
 }

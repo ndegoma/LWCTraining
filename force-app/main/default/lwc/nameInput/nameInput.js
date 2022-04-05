@@ -14,6 +14,7 @@ export default class NameInput extends LightningElement {
     }
 
     get output() {
+        // call the globale helper function to convert words to title case
         return toTitleCase(`${this.firstName} ${this.lastName}`.toUpperCase());
     }
 }
