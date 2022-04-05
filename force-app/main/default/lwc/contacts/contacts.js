@@ -30,7 +30,7 @@ export default class Contacts extends LightningElement {
             this.contacts = result.data.map(contact=>{
                 //assign the iterated value as a new intance of the con variable
                 let con = Object.assign({}, contact);
-                //remap the value of the object Account.Name to a key call Account.Name
+                //remap the value of the object Account.Name to a key called Account.Name
                 con["Account.Name"] = contact.Account.Name;
                 //other way to do this is
                 //let con = {...contact, "Account.Name" : contact.Account.Name};
